@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Casual.v1</string>
+    <string name="acao_atualizar">Atualizar</string>
+    <string name="acao_configurar">Configurar</string>
+    <string name="acao_sair">Sair</string>
+    <string name="acao_entrar">Entrar</string>
+    <string name="acao_cadastrar">Cadastrar-se</string>
+    <string name="acao_salvar_cadastro">Salvar Cadastro</string>
+    <string name="acao_senha_muito_curta">Senha muito curta</string>
+
+    <string-array name="titulo_abas">
+        <item>Primeira</item>
+        <item>Segunda</item>
+        <item>Terceira</item>
+    </string-array>
+
+    <string name="campo_email">Insira seu email</string>
+    <string name="campo_senha">Insira sua senha</string>
+    <string name="campo_nome">Insira seu nome</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_apontamentos">Map</string>
+</resources>
