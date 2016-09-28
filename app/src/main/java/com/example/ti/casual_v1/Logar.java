@@ -45,7 +45,7 @@ public class Logar extends ClasseMaeCadastroLogin {
     public void chamaCadastro(View view){
         Intent intent = new Intent(this, Cadastrar.class);
         startActivity(intent);
-        finish();
+        //finish();
     }
 
     public void enviarDadosLogin(View view){

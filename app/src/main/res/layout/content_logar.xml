@@ -144,7 +144,7 @@
                 android:onClick="chamaCadastro"
                 android:text="@string/acao_cadastrar"
                 android:textColor="#0000ff"
-                android:clickable="true" />
+                />
 
         </LinearLayout>
     </ScrollView>
