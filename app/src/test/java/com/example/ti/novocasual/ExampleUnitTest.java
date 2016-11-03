@@ -1,4 +1,4 @@
-package com.example.ti.casual_v1;
+package com.example.ti.novocasual;
 
 import org.junit.Test;
 

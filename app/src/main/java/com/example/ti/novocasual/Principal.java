@@ -1,44 +1,32 @@
-package com.example.ti.casual_v1;
+package com.example.ti.novocasual;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 
 import android.content.Intent;
-import android.location.Location;
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import com.firebase.client.Firebase;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.location.LocationServices;
+import java.util.ArrayList;
 
 public class Principal extends AppCompatActivity {
 
     TabLayout abas;
     ViewPager paginaDasAbas;
     AdaptadorDePaginas adaptadorDePaginas;
-    //////////////////////////////////////
-    //Firebase referenciaFirebase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
-        //////////////////////////////////////////////////////////////////
-
-        //////////////////////////////////////////////////////////////////
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //////////////////////////////////////////////////////////////////////////////
+        Toolbar toolbar = (Toolbar) findViewById(R.id.IDtoolbarPincipal);
         setSupportActionBar(toolbar);
-
+        /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,25 +35,18 @@ public class Principal extends AppCompatActivity {
                         .setAction("Ação", null).show();
             }
         });
-
+        */
         /////////////////////////////////// ABAS /////////////////////////////////////
         abas = (TabLayout) findViewById(R.id.IDabas);
         /////////////////////////////// PAGINA DAS ABAS //////////////////////////////
         paginaDasAbas = (ViewPager) findViewById(R.id.IDadaptardorDePaginas);
         //////////////////////////// ADAPTAR AS PAGINAS //////////////////////////////
         adaptadorDePaginas = new AdaptadorDePaginas(getSupportFragmentManager());
-        adaptadorDePaginas.addPaginas(new Pagina1(), "Primeira");
-        adaptadorDePaginas.addPaginas(new Pagina2(), "Segunda");
-        adaptadorDePaginas.addPaginas(new Pagina3(), "Mapeamento");
+        adaptadorDePaginas.addPaginas(new Pagina1(), "Onlines");
+        adaptadorDePaginas.addPaginas(new Conversas(), "Conversas");
         adaptadorDePaginas.addPaginas(new Apontamentos(), "Apontamentos");
-        //adaptadorDePaginas.addPaginas(new Teste(),"test");
         paginaDasAbas.setAdapter(adaptadorDePaginas);
         abas.setupWithViewPager(paginaDasAbas);
-        /////////////////////////////// LOCALIZAÇÃO //////////////////////////////////
-
-        ////////////////////////////////// TESTE /////////////////////////////////////
-
-        //////////////////////////////////////////////////////////////////////////////
     }
 
     ///////////////////////////// MENU "PEQUENO" LATERAL /////////////////////////////
@@ -75,30 +56,31 @@ public class Principal extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_principal, menu);                     //
         return true;                                                                //
     }                                                                               //
-                                                                                    //
+    //
     @Override                                                                       //
     public boolean onOptionsItemSelected(MenuItem item) {                           //
-                                                                                    //
+        //
         int id = item.getItemId();                                                  //
-                                                                                    //
+        //
         //noinspection SimplifiableIfStatement                                      //
         if (id == R.id.IDatualizar) {                                               //
-                                                                                    //
+            //
             return true;                                                            //
         }                                                                           //
         if (id == R.id.IDconfigurar) {                                              //
             return true;                                                            //
         }                                                                           //
         if (id == R.id.IDsair) {                                                    //
-            Firebase firebase = ClassePadrao.getFirebase();                         //
-            firebase.unauth();                                                      //
-            Intent intent = new Intent (this, Logar.class);                         //
+            //
+            Intent intent = new Intent (this, Login.class);                         //
             startActivity(intent);                                                  //
             finish();                                                               //
             return true;                                                            //
         }                                                                           //
-                                                                                    //
+        //
         return super.onOptionsItemSelected(item);                                   //
     }                                                                               //
+
     //////////////////////////////////////////////////////////////////////////////////
+
 }
